@@ -1,0 +1,31 @@
+kube-bench 容器安全厂商aquq推出的工具，以CIS K8s基准作为基础，来检测K8s是否安全部署
+安装kube-bench工具
+1.通过该链接下载kube-bench工具：wget https://github.com/aquasecurity/kube-bench/releases/download/v0.6.8/kube-bench_0.6.8_linux_amd64.tar.gz
+tar -zxvf kube-bench_0.6.8_linux_arm64.tar.gz
+mkdir /etc/kube-bench/
+mv cfg /etc/kube-bench
+mv kube-bench /usr/bin
+
+[FAIL] 1.1.12 Ensure that the etcd data directory ownership is set to etcd:etcd (Automated)
+
+[FAIL] 1.2.6 Ensure that the --kubelet-certificate-authority argument is set as appropriate (Automated)
+
+[FAIL] 1.2.18 Ensure that the --profiling argument is set to false (Automated)
+
+[FAIL] 1.2.19 Ensure that the --audit-log-path argument is set (Automated)
+
+[FAIL] 1.2.20 Ensure that the --audit-log-maxage argument is set to 30 or as appropriate (Automated)
+
+[FAIL] 1.2.21 Ensure that the --audit-log-maxbackup argument is set to 10 or as appropriate (Automated)
+
+[FAIL] 1.2.22 Ensure that the --audit-log-maxsize argument is set to 100 or as appropriate (Automated)
+
+[FAIL] 1.3.2 Ensure that the --profiling argument is set to false (Automated)
+
+[FAIL] 1.4.1 Ensure that the --profiling argument is set to false (Automated)
+
+可以根据相对应的报错信息解决。
+也可以通过设置/etc/kube-bench/cfg下的yaml跳过检查项，会设置成warn。
+scored状态false | true
+增加type：skip 跳过
+
